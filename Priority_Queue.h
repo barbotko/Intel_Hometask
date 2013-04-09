@@ -1,5 +1,5 @@
 const int QUEUE_SIZE = 100;
-typedef Data int;
+typedef int Data;
 
 struct queue_elem
 {
