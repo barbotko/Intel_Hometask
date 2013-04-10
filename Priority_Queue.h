@@ -1,5 +1,5 @@
 const int QUEUE_SIZE = 100;
-typedef Data int;
+typedef int Data;
 
 struct queue_elem
 {
@@ -25,7 +25,7 @@ public:
 priority_queue::priority_queue()
 {
     heap_size = 0;
-    for (int i = 0, i < QUEUE_SIZE; ++i)
+    for (int i = 0; i < QUEUE_SIZE; ++i)
     {
         heap[i].priority = 0;
         heap[i].value = 0;
