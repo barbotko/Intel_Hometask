@@ -1,4 +1,6 @@
 Project Description
 Priority queue 
 
-Working on the interface
+Common priority queue based on the binary heap.
+
+Status: Working on the interface
