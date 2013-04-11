@@ -47,12 +47,12 @@ void priority_queue::Heapify(int start_point)
         largest = left;
     else if (right <= heap_size && heap[right].priority >= heap[largest].priority)
         largest = right;
-    if (largest != start_point) swap(heap[largest], heap[start_point])
+    if (largest != start_point) Swap(heap[largest], heap[start_point])
     Heapify(largest);
     return;
 }
 
-void Swap(queue_elem& el1, queue_elem& el2)
+void priority_queue::Swap(queue_elem& el1, queue_elem& el2)
 {
     queue_elem exch = el1;
     el1 = el2;
