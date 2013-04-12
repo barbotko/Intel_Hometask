@@ -21,15 +21,12 @@ private:
     void Swap(queue_elem& el1, queue_elem& el2);        // to swap two elements in the heap
     void Heap_Increase_Key (int el_num, int new_prior); // to change some element's priority
 public:
-    void Insert(Data value, int priority);        // to add element
+    void Insert(Data value, int priority);              // to add element
     queue_elem Extract_Elem();                          // removes the elements with the highest prioiry from queue
-<<<<<<< HEAD
-    bool Is_Empty() const;                        // checks if the queue is empty
-    void Dump() const;                            // to print queue's contents
-=======
+    bool Is_Empty() const;                              // checks if the queue is empty
+    void Dump() const;                                  // to print queue's contents
     bool Queue_Is_Empty() const;                        // checks if the queue is empty
     void Queue_Dump() const;                            // to print queue's contents
->>>>>>> ec1d7fb86e4bdb35e8ddf702159d217b9f497dca
     priority_queue();
     ~priority_queue();
 };
@@ -45,22 +42,14 @@ void priority_queue::Insert(Data value, int priority)
 
 queue_elem priority_queue::Extract_Elem()
 {
-<<<<<<< HEAD
     assert( !( Is_Empty() ) );
-=======
-    assert( !( Queue_Is_Empty() ) );
->>>>>>> ec1d7fb86e4bdb35e8ddf702159d217b9f497dca
     queue_elem max = heap[0];
     heap[0] = heap[heap_size--];
     Heapify(0);
     return max;
 }
 
-<<<<<<< HEAD
 bool priority_queue::Is_Empty() const
-=======
-bool priority_queue::Queue_Is_Empty() const
->>>>>>> ec1d7fb86e4bdb35e8ddf702159d217b9f497dca
 {
     return (heap_size == 0);
 }
