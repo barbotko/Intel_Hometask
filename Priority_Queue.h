@@ -25,7 +25,7 @@ private:
 public:
     void Queue_Insert(Data value, int priority);        // to add element
     queue_elem Extract_Elem();                          // removes the elements with the highest prioiry from queue
-    bool Queue_Is_Not_Empty() const;                    // checks if the queue is empty
+    bool Queue_Is_Empty() const;                        // checks if the queue is empty
     void Queue_Dump() const;                            // to print queue's contents
     priority_queue();
     ~priority_queue();
@@ -42,16 +42,16 @@ void priority_queue::Queue_Insert(Data value, int priority)
 
 queue_elem priority_queue::Extract_Elem()
 {
-    assert( Queue_Is_Not_Empty() );
+    assert( !( Queue_Is_Empty() ) );
     queue_elem max = heap[0];
     heap[0] = heap[heap_size--];
     Heapify(0);
     return max;
 }
 
-bool priority_queue::Queue_Is_Not_Empty() const
+bool priority_queue::Queue_Is_Empty() const
 {
-    if (heap_size == 0) return false; else return true;
+    return (heap_size == 0);
 }
 
 void priority_queue::Queue_Dump() const
