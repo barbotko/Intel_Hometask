@@ -17,19 +17,28 @@ struct queue_elem
 class priority_queue
 {
 private:
-    queue_elem heap[QUEUE_SIZE];                        // contains the queue
-    int heap_size;                                      // contains the number of elements
+    // contains the queue
+    queue_elem heap[QUEUE_SIZE];
+    // contains the number of elements
+    int heap_size;
 
-    void Heapify(int start_point);                      // to put elements in the correct order
-    void Swap(queue_elem& el1, queue_elem& el2);        // to swap two elements in the heap
-    void Heap_Increase_Key (int el_num, int new_prior); // to change some element's priority
+    // to put elements in the correct order
+    void Heapify(int start_point);
+    // to swap two elements in the heap
+    void Swap(queue_elem& el1, queue_elem& el2);
+    // to increase some element's priority
+    void Heap_Increase_Key (int el_num, int new_prior);
 public:
-    void Insert(Data value, int priority);              // to add element
-    queue_elem Extract_Elem();                          // removes the elements with the highest prioiry from queue
-    bool Is_Empty() const;                              // checks if the queue is empty
-    void Dump() const;                                  // to print queue's contents
-    bool Queue_Is_Empty() const;                        // checks if the queue is empty
-    void Queue_Dump() const;                            // to print queue's contents
+    // adds an element
+    void Insert(Data value, int priority);
+    // removes the element with the highest prioiry from queue (and returns it)
+    queue_elem Extract_Elem();
+    // checks if the queue is empty
+    bool Is_Empty() const;
+    // prints queue's contents
+    void Dump() const;
+    // checks if the queue is empty
+    bool Queue_Is_Empty() const;
     priority_queue();
     ~priority_queue();
 };
@@ -91,6 +100,7 @@ void priority_queue::Heap_Increase_Key (int el_num, int new_prior)
 
 void priority_queue::Heapify(int start_point)
 {
+    if (start_point == heap_size) return;
     int largest = start_point;
     int left  = 2 * start_point + 1;
     int right = 2 * start_point + 2;
