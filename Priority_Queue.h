@@ -29,7 +29,6 @@ private:
     // to increase some element's priority
     void Heap_Increase_Key (int el_num, int new_prior);
 public:
-
     // adds an element
     void Insert(Data value, int priority);
     // removes the element with the highest prioiry from queue (and returns it)
@@ -38,8 +37,6 @@ public:
     bool Is_Empty() const;
     // prints queue's contents
     void Dump() const;
-    // checks if the queue is empty
-    bool Queue_Is_Empty() const;
     priority_queue();
     ~priority_queue();
 };
