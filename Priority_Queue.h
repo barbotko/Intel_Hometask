@@ -22,7 +22,7 @@ private:
 
     void Heapify(int start_point);                      // to put elements in the correct order
     void Swap(queue_elem& el1, queue_elem& el2);        // to swap two elements in the heap
-    void Heap_Increase_Key (int el_num, int new_prior); // to change some element's priority
+    void Heap_Increase_Key (int el_num, int new_prior); // to increase some element's priority
 public:
     void Insert(Data value, int priority);              // to add element
     queue_elem Extract_Elem();                          // removes the elements with the highest prioiry from queue
