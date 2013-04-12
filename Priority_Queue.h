@@ -1,3 +1,6 @@
+#ifndef PRIOR_Q_H
+#define PRIOR_Q_H
+
 #include <iostream>
 #include <assert.h>
 #include <cmath>
@@ -107,3 +110,5 @@ void priority_queue::Swap(queue_elem& el1, queue_elem& el2)
     el2 = exch;
     return;
 }
+
+#endif      // PRIOR_Q_H
