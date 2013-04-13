@@ -10,9 +10,18 @@ int main()
 //                  PUBLIC METHODS
 //---------------------------------------------------------------
 
-void priority_queue::Insert(Data value, int priority)
+void priority_queue::Insert(data val, int priority)
 {
-
+    int el_num = ++heap_size;
+    heap[el_num].value = val;
+    heap[el_num].priority = priority;
+    //  since (2i + 1) and (2i + 2) elements have the same i parent (int) ( (i - 1) / 2 ) is
+    //  way to find out who is an element's parent
+    while (el_num > 0 && heap[ (int)( (el_num - 1) / 2 ) ].priority < heap[el_num].priority )
+    {
+        Swap(heap[ (int)( (el_num - 1) / 2 ) ], heap[el_num]);
+        el_num = (int)( (el_num - 1) / 2 );
+    }
 }
 
 queue_elem priority_queue::Extract_Elem()
@@ -34,34 +43,20 @@ void priority_queue::Dump() const
 
 }
 
-priority_queue::priority_queue()
+priority_queue::priority_queue(int queue_size)
 {
     heap_size = 0;
-    for (int i = 0; i < QUEUE_SIZE; ++i)
-        heap[i] = {0, 0};
+    heap = new queue_elem[queue_size];
 }
 
 priority_queue::~priority_queue()
 {
-
+    delete [] heap;
 }
 
 //---------------------------------------------------------------
 //                  PRIVATE METHODS
 //---------------------------------------------------------------
-
-void priority_queue::Heap_Increase_Key (int el_num, int new_prior)
-{
-    assert(new_prior > heap[el_num].priority);
-    heap[el_num].priority = new_prior;
-    //  since (2i + 1) and (2i + 2) elements have the same i parent (int) ( (i - 1) / 2 ) is
-    //  way to find out who is an element's parent
-    while (el_num > 0 && heap[ (int)( (el_num - 1) / 2 ) ].priority < heap[el_num].priority )
-    {
-        Swap(heap[ (int)( (el_num - 1) / 2 ) ], heap[el_num]);
-        el_num = (int)( (el_num - 1) / 2 );
-    }
-}
 
 void priority_queue::Heapify(int start_point)
 {
