@@ -3,11 +3,15 @@
 int main()
 {
     priority_queue qu(5);
-    qu.Insert(5, 10);
+    qu.Insert(1, -4);
     qu.Dump();
-    qu.Insert(4, 19);
+    qu.Insert(6, -2);
     qu.Dump();
-    qu.Insert(3, 8);
+    qu.Insert(5, -1);
+    qu.Dump();
+    qu.Insert(10, -3);
+    qu.Dump();
+    qu.Extract_Elem();
     qu.Dump();
     return 0;
 }
@@ -17,7 +21,12 @@ int main()
 //                  PUBLIC METHODS
 //---------------------------------------------------------------
 
-void priority_queue::Insert(data val, int priority)
+int priority_queue::Get_Size() const
+{
+    return heap_size;
+}
+
+void priority_queue::Insert(int priority, data val)
 {
     int el_num = heap_size++;
     heap[el_num].value = val;
@@ -47,8 +56,11 @@ bool priority_queue::Is_Empty() const
 
 void priority_queue::Dump() const
 {
+    cout << endl << "QUEUE DUMP" << endl;
+    cout << "The number of elements = " << Get_Size() << endl;
+    cout << "Data :" << endl;
     for (int i = 0; i < heap_size; ++i)
-        std::cout << "priority = " << heap[i].priority << " value = " << heap[i].value << std::endl;
+        cout << "[ " << heap[i].priority << " , " << heap[i].value << " ]" << endl;
 }
 
 priority_queue::priority_queue(int queue_size)

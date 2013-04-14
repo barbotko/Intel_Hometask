@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <string>
 
+using namespace std;
+
 typedef int data;
 
 struct queue_elem
@@ -26,8 +28,10 @@ private:
     // to swap two elements in the heap
     void Swap(queue_elem& el1, queue_elem& el2);
 public:
+    // to know how many elements are in the queue already
+    int Get_Size() const;
     // adds an element
-    void Insert(data value, int priority);
+    void Insert(int priority, data val);
     // removes the element with the highest prioiry from queue (and returns it)
     queue_elem Extract_Elem();
     // checks if the queue is empty
