@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <assert.h>
+#include <string>
 
 typedef int data;
 

@@ -2,6 +2,13 @@
 
 int main()
 {
+    priority_queue qu(5);
+    qu.Insert(5, 10);
+    qu.Dump();
+    qu.Insert(4, 19);
+    qu.Dump();
+    qu.Insert(3, 8);
+    qu.Dump();
     return 0;
 }
 
@@ -12,7 +19,7 @@ int main()
 
 void priority_queue::Insert(data val, int priority)
 {
-    int el_num = ++heap_size;
+    int el_num = heap_size++;
     heap[el_num].value = val;
     heap[el_num].priority = priority;
     //  since (2i + 1) and (2i + 2) elements have the same i parent (int) ( (i - 1) / 2 ) is
@@ -40,7 +47,8 @@ bool priority_queue::Is_Empty() const
 
 void priority_queue::Dump() const
 {
-
+    for (int i = 0; i < heap_size; ++i)
+        std::cout << "priority = " << heap[i].priority << " value = " << heap[i].value << std::endl;
 }
 
 priority_queue::priority_queue(int queue_size)
